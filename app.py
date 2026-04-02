@@ -1,20 +1,14 @@
-import requests
-from flask import Flask, jsonify, render_template
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def home():
     return render_template('hello.html')
 
-# Déposez votre code à partir d'ici :
+@app.route('/histogramme')
+def histogramme():
+    return render_template('histogramme.html')
 
-
-
-
-
-
-# Ne rien mettre après ce commentaire
-    
-if __name__ == "__main__":
-  app.run(host="0.0.0.0", port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

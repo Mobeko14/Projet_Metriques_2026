@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script>
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Jour', 'Température'],
+        ['Lundi', 18],
+        ['Mardi', 20],
+        ['Mercredi', 22],
+        ['Jeudi', 19],
+        ['Vendredi', 21],
+        ['Samedi', 23],
+        ['Dimanche', 20]
+      ]);
+
+      var options = {
+        title: 'Météo Paris'
+      };
+
+      var chart = new google.visualization.ColumnChart(
+        document.getElementById('chart_div')
+      );
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Histogramme météo</h1>
+  <div id="chart_div" style="width:800px;height:500px;"></div>
+</body>
+</html>
